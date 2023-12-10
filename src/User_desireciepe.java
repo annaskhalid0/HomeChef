@@ -1,4 +1,6 @@
 
+import java.awt.Color;
+import java.awt.Font;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -9,6 +11,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.JTableHeader;
 
 /**
  *
@@ -26,6 +29,7 @@ public class User_desireciepe extends javax.swing.JFrame {
         showreciepe();
         feedbacktable();
         username();
+        rimg();
     }
 
     public void showreciepe()
@@ -49,7 +53,14 @@ public class User_desireciepe extends javax.swing.JFrame {
     public void feedbacktable()
     {
         try {
-             pst = conn.prepareStatement("select * from desicomments");
+             JTableHeader head = user_desitab.getTableHeader();
+             Font font = new Font("Arial",Font.BOLD,20);
+             head.setFont(font);
+             user_desitab.setBackground(Color.WHITE);
+             user_desitab.setFont(new Font("Tahoma",Font.BOLD,15));
+             user_desitab.setForeground(Color.RED);  
+             
+             pst = conn.prepareStatement("select * from desicomments where RECIEPETYPE='Desi'");
              rs = pst.executeQuery();
              ResultSetMetaData rsmd = rs.getMetaData();
              int feed;
@@ -64,8 +75,10 @@ public class User_desireciepe extends javax.swing.JFrame {
                  
                  for(int i=1 ; i<=feed ; i++)
                  {
+                 v.add(rs.getString("NAME"));
                  v.add(rs.getString("RECIEPENAME"));
                  v.add(rs.getString("FEEDBACK"));
+                 v.add(rs.getString("RATING"));
                  }
                  
                  desitab.addRow(v);
@@ -79,8 +92,13 @@ public class User_desireciepe extends javax.swing.JFrame {
     
     public void username()
     {
-        jLabel8.setText(User_login.uname_login.getText());
+        user_name.setText(User_login.uname_login.getText());
     }
+    public void rimg()
+    {
+        user_desiimg.setText("Desi");
+    }
+    
     
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -100,23 +118,26 @@ public class User_desireciepe extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         user_ctime = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
-        jLabel6 = new javax.swing.JLabel();
+        user_desiimg = new javax.swing.JLabel();
         jScrollPane3 = new javax.swing.JScrollPane();
         user_desitab = new javax.swing.JTable();
         jScrollPane4 = new javax.swing.JScrollPane();
         user_desifeed = new javax.swing.JTextArea();
         jButton2 = new javax.swing.JButton();
         jLabel7 = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
+        user_name = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
+        user_slider = new javax.swing.JSlider();
+        jLabel8 = new javax.swing.JLabel();
+        user_rating = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jPanel1.setBackground(new java.awt.Color(204, 255, 204));
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
         jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\IT Garage\\Downloads\\icons8-chef-100.png")); // NOI18N
 
-        home_login.setBackground(new java.awt.Color(204, 255, 204));
+        home_login.setBackground(new java.awt.Color(255, 255, 255));
         home_login.setIcon(new javax.swing.ImageIcon("C:\\Users\\IT Garage\\Downloads\\icons8-home-38.png")); // NOI18N
         home_login.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.LOWERED));
         home_login.addActionListener(new java.awt.event.ActionListener() {
@@ -130,7 +151,7 @@ public class User_desireciepe extends javax.swing.JFrame {
         jLabel2.setForeground(new java.awt.Color(0, 51, 51));
         jLabel2.setText("Reciepes");
 
-        user_desi.setBackground(new java.awt.Color(204, 255, 204));
+        user_desi.setBackground(new java.awt.Color(255, 255, 255));
         user_desi.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         user_desi.setForeground(new java.awt.Color(0, 51, 51));
         user_desi.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 51, 51)));
@@ -155,6 +176,7 @@ public class User_desireciepe extends javax.swing.JFrame {
         user_items.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         user_items.setForeground(new java.awt.Color(0, 51, 51));
         user_items.setRows(5);
+        user_items.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.LOWERED));
         jScrollPane1.setViewportView(user_items);
 
         user_method.setEditable(false);
@@ -163,6 +185,7 @@ public class User_desireciepe extends javax.swing.JFrame {
         user_method.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         user_method.setForeground(new java.awt.Color(0, 51, 51));
         user_method.setRows(5);
+        user_method.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.LOWERED));
         user_method.setMinimumSize(new java.awt.Dimension(300, 340));
         jScrollPane2.setViewportView(user_method);
 
@@ -186,9 +209,9 @@ public class User_desireciepe extends javax.swing.JFrame {
         user_ctime.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         user_ctime.setForeground(new java.awt.Color(0, 51, 51));
 
-        jButton1.setBackground(new java.awt.Color(204, 255, 204));
+        jButton1.setBackground(new java.awt.Color(255, 255, 255));
         jButton1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(0, 51, 51));
+        jButton1.setForeground(new java.awt.Color(102, 0, 0));
         jButton1.setIcon(new javax.swing.ImageIcon("C:\\Users\\IT Garage\\Downloads\\icons8-next-30.png")); // NOI18N
         jButton1.setText("Next Item");
         jButton1.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.LOWERED));
@@ -198,21 +221,21 @@ public class User_desireciepe extends javax.swing.JFrame {
             }
         });
 
-        jLabel6.setBackground(new java.awt.Color(204, 255, 204));
-        jLabel6.setIcon(new javax.swing.ImageIcon("C:\\Users\\IT Garage\\Downloads\\icons8-biryani-40.png")); // NOI18N
+        user_desiimg.setBackground(new java.awt.Color(204, 255, 204));
+        user_desiimg.setIcon(new javax.swing.ImageIcon("C:\\Users\\IT Garage\\Downloads\\icons8-biryani-40.png")); // NOI18N
 
         user_desitab.setBackground(new java.awt.Color(255, 255, 255));
         user_desitab.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         user_desitab.setForeground(new java.awt.Color(0, 51, 51));
         user_desitab.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null}
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
             },
             new String [] {
-                "RECIEPETYPE", "FEEDBACK"
+                "NAME", "RECIEPENAME", "FEEDBACK", "RATING"
             }
         ));
         jScrollPane3.setViewportView(user_desitab);
@@ -239,15 +262,33 @@ public class User_desireciepe extends javax.swing.JFrame {
         jLabel7.setForeground(new java.awt.Color(102, 0, 0));
         jLabel7.setText("FEEDBACK");
 
-        jLabel8.setBackground(new java.awt.Color(204, 255, 204));
-        jLabel8.setFont(new java.awt.Font("Bahnschrift", 1, 18)); // NOI18N
-        jLabel8.setForeground(new java.awt.Color(0, 51, 51));
-        jLabel8.setText("jLabel8");
+        user_name.setBackground(new java.awt.Color(204, 255, 204));
+        user_name.setFont(new java.awt.Font("Bahnschrift", 1, 18)); // NOI18N
+        user_name.setForeground(new java.awt.Color(0, 51, 51));
+        user_name.setText("jLabel8");
 
         jLabel9.setBackground(new java.awt.Color(204, 255, 204));
         jLabel9.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(102, 0, 0));
         jLabel9.setText("USERNAME");
+
+        user_slider.setBackground(new java.awt.Color(204, 255, 204));
+        user_slider.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        user_slider.setForeground(new java.awt.Color(0, 51, 51));
+        user_slider.setMajorTickSpacing(1);
+        user_slider.setMaximum(10);
+        user_slider.setPaintLabels(true);
+        user_slider.setPaintTicks(true);
+        user_slider.setSnapToTicks(true);
+
+        jLabel8.setBackground(new java.awt.Color(204, 255, 204));
+        jLabel8.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel8.setForeground(new java.awt.Color(102, 0, 0));
+        jLabel8.setText("RATING");
+
+        user_rating.setBackground(new java.awt.Color(255, 255, 255));
+        user_rating.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        user_rating.setForeground(new java.awt.Color(0, 51, 51));
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -256,35 +297,34 @@ public class User_desireciepe extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(20, 20, 20)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addGroup(jPanel1Layout.createSequentialGroup()
+                            .addComponent(jLabel2)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(user_desi, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(38, 38, 38)
+                            .addComponent(jLabel5)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(user_ctime))
+                        .addGroup(jPanel1Layout.createSequentialGroup()
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jLabel3)
+                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jLabel4))))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(130, 130, 130)
-                                .addComponent(jLabel6))
-                            .addComponent(jButton1))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(130, 130, 130)
+                        .addComponent(user_desiimg))
+                    .addComponent(jButton1))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel1)
-                        .addGap(398, 398, 398)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(home_login))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabel2)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(user_desi, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(38, 38, 38)
-                                .addComponent(jLabel5)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(user_ctime))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel3)
-                                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel4))))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGap(0, 0, Short.MAX_VALUE)
@@ -292,11 +332,15 @@ public class User_desireciepe extends javax.swing.JFrame {
                                 .addGap(111, 111, 111))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel7)
-                                    .addComponent(jLabel9)
-                                    .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 294, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel8))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 13, Short.MAX_VALUE)))
+                                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                        .addComponent(jLabel7)
+                                        .addComponent(jLabel9)
+                                        .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 294, Short.MAX_VALUE)
+                                        .addComponent(user_name)
+                                        .addComponent(user_slider, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                    .addComponent(jLabel8)
+                                    .addComponent(user_rating, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 25, Short.MAX_VALUE)))
                         .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 400, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(24, 24, 24))
         );
@@ -314,7 +358,7 @@ public class User_desireciepe extends javax.swing.JFrame {
                                 .addGap(41, 41, 41)
                                 .addComponent(jButton1)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jLabel6))
+                                .addComponent(user_desiimg))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGap(36, 36, 36)
                                 .addComponent(home_login)))
@@ -332,8 +376,14 @@ public class User_desireciepe extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel8)
+                        .addComponent(user_name)
                         .addGap(18, 18, 18)
+                        .addComponent(jLabel8)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(user_slider, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(user_rating, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jLabel7)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -404,13 +454,22 @@ public class User_desireciepe extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
+        
+       
+        String name = user_name.getText();
+        String desiimg = user_desiimg.getText();
         String feed = user_desifeed.getText();
         String rtype = user_desi.getSelectedItem().toString();
+        int val = Integer.parseInt(user_rating.getText());
+        user_slider.setValue(val);
         try
         {
-            pst = conn.prepareStatement("insert into desicomments (RECIEPENAME,FEEDBACK) values (?,?) ");
-            pst.setString(1, rtype);
-            pst.setString(2, feed);
+            pst = conn.prepareStatement("insert into desicomments (NAME,RECIEPETYPE,RECIEPENAME,FEEDBACK,RATING) values (?,?,?,?,?) ");
+            pst.setString(1, name);
+            pst.setString(2, desiimg);
+            pst.setString(3, rtype);
+            pst.setString(4, feed);
+            pst.setInt(5, val);
             
             pst.executeUpdate();
             
@@ -420,11 +479,12 @@ public class User_desireciepe extends javax.swing.JFrame {
             user_ctime.setText("");
             user_items.setText("");
             user_method.setText("");
+            user_rating.setText("");
             feedbacktable();
             
         }catch(Exception ex)
         {
-        
+            Logger.getLogger(User_desireciepe.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_jButton2ActionPerformed
 
@@ -472,7 +532,6 @@ public class User_desireciepe extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
@@ -484,8 +543,12 @@ public class User_desireciepe extends javax.swing.JFrame {
     private javax.swing.JTextField user_ctime;
     private javax.swing.JComboBox<String> user_desi;
     private javax.swing.JTextArea user_desifeed;
+    private javax.swing.JLabel user_desiimg;
     private javax.swing.JTable user_desitab;
     private javax.swing.JTextArea user_items;
     private javax.swing.JTextArea user_method;
+    private javax.swing.JLabel user_name;
+    private javax.swing.JTextField user_rating;
+    private javax.swing.JSlider user_slider;
     // End of variables declaration//GEN-END:variables
 }

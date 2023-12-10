@@ -1,10 +1,17 @@
 
+import java.awt.Color;
+import java.awt.Font;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
+import java.util.Vector;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+import javax.swing.table.JTableHeader;
 
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
@@ -25,6 +32,9 @@ public class User_fastfood extends javax.swing.JFrame {
         initComponents();
         conn = DBC.ConnecrDB();
         showreciepe();
+        feedbacktable();
+        username();
+        rimg();
     }
 
      public void showreciepe()
@@ -44,7 +54,58 @@ public class User_fastfood extends javax.swing.JFrame {
             Logger.getLogger(User_fastfood.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+     
+    public void feedbacktable()
+    {
+        try {
+             JTableHeader head = user_ffoodtab.getTableHeader();
+             Font font = new Font("Arial",Font.BOLD,20);
+             head.setFont(font);
+             user_ffoodtab.setBackground(Color.WHITE);
+             user_ffoodtab.setFont(new Font("Tahoma",Font.BOLD,15));
+             user_ffoodtab.setForeground(Color.RED);
+            
+             pst = conn.prepareStatement("select * from desicomments where RECIEPETYPE='FastFood'");
+             rs = pst.executeQuery();
+             ResultSetMetaData rsmd = rs.getMetaData();
+             int feed;
+             feed = rsmd.getColumnCount();
+             
+             DefaultTableModel desitab = (DefaultTableModel) user_ffoodtab.getModel();
+             desitab.setRowCount(0);
+             
+             while(rs.next())
+             {
+                 Vector v = new Vector();
+                 
+                 for(int i=1 ; i<=feed ; i++)
+                 {
+                 v.add(rs.getString("NAME"));
+                 v.add(rs.getString("RECIEPENAME"));
+                 v.add(rs.getString("FEEDBACK"));
+                 v.add(rs.getString("RATING"));
+                 }
+                 
+                 desitab.addRow(v);
+                 
+             }
+ 
+         } catch (SQLException ex) {
+             Logger.getLogger(User_fastfood.class.getName()).log(Level.SEVERE, null, ex);
+         }
+    }
     
+    public void username()
+    {
+        user_name.setText(User_login.uname_login.getText());
+    }
+    
+    public void rimg()
+    {
+        user_ffoodimg.setText("FastFood");
+    }
+    
+     
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -63,15 +124,26 @@ public class User_fastfood extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         user_ctime = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
-        jLabel6 = new javax.swing.JLabel();
+        user_ffoodimg = new javax.swing.JLabel();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        user_ffoodtab = new javax.swing.JTable();
+        jLabel9 = new javax.swing.JLabel();
+        user_name = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        user_slider = new javax.swing.JSlider();
+        user_rating = new javax.swing.JTextField();
+        jLabel7 = new javax.swing.JLabel();
+        jScrollPane4 = new javax.swing.JScrollPane();
+        user_ffoodfeed = new javax.swing.JTextArea();
+        jButton2 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jPanel1.setBackground(new java.awt.Color(204, 255, 204));
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
         jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\IT Garage\\Downloads\\icons8-chef-100.png")); // NOI18N
 
-        home_login.setBackground(new java.awt.Color(204, 255, 204));
+        home_login.setBackground(new java.awt.Color(255, 255, 255));
         home_login.setIcon(new javax.swing.ImageIcon("C:\\Users\\IT Garage\\Downloads\\icons8-home-38.png")); // NOI18N
         home_login.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.LOWERED));
         home_login.addActionListener(new java.awt.event.ActionListener() {
@@ -85,7 +157,7 @@ public class User_fastfood extends javax.swing.JFrame {
         jLabel2.setForeground(new java.awt.Color(0, 51, 51));
         jLabel2.setText("Reciepes");
 
-        user_fastfood.setBackground(new java.awt.Color(204, 255, 204));
+        user_fastfood.setBackground(new java.awt.Color(255, 255, 255));
         user_fastfood.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         user_fastfood.setForeground(new java.awt.Color(0, 51, 51));
         user_fastfood.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 51, 51)));
@@ -110,6 +182,7 @@ public class User_fastfood extends javax.swing.JFrame {
         user_items.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         user_items.setForeground(new java.awt.Color(0, 51, 51));
         user_items.setRows(5);
+        user_items.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.LOWERED));
         jScrollPane1.setViewportView(user_items);
 
         user_method.setEditable(false);
@@ -118,6 +191,7 @@ public class User_fastfood extends javax.swing.JFrame {
         user_method.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         user_method.setForeground(new java.awt.Color(0, 51, 51));
         user_method.setRows(5);
+        user_method.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.LOWERED));
         user_method.setMinimumSize(new java.awt.Dimension(300, 340));
         jScrollPane2.setViewportView(user_method);
 
@@ -141,9 +215,9 @@ public class User_fastfood extends javax.swing.JFrame {
         user_ctime.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         user_ctime.setForeground(new java.awt.Color(0, 51, 51));
 
-        jButton1.setBackground(new java.awt.Color(204, 255, 204));
+        jButton1.setBackground(new java.awt.Color(255, 255, 255));
         jButton1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(0, 51, 51));
+        jButton1.setForeground(new java.awt.Color(102, 0, 0));
         jButton1.setIcon(new javax.swing.ImageIcon("C:\\Users\\IT Garage\\Downloads\\icons8-next-30.png")); // NOI18N
         jButton1.setText("Next Item");
         jButton1.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.LOWERED));
@@ -153,8 +227,74 @@ public class User_fastfood extends javax.swing.JFrame {
             }
         });
 
-        jLabel6.setBackground(new java.awt.Color(204, 255, 204));
-        jLabel6.setIcon(new javax.swing.ImageIcon("C:\\Users\\IT Garage\\Downloads\\icons8-fast-food-40.png")); // NOI18N
+        user_ffoodimg.setBackground(new java.awt.Color(204, 255, 204));
+        user_ffoodimg.setIcon(new javax.swing.ImageIcon("C:\\Users\\IT Garage\\Downloads\\icons8-fast-food-40.png")); // NOI18N
+
+        user_ffoodtab.setBackground(new java.awt.Color(255, 255, 255));
+        user_ffoodtab.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        user_ffoodtab.setForeground(new java.awt.Color(0, 51, 51));
+        user_ffoodtab.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "NAME", "RECIEPENAME", "FEEDBACK", "RATING"
+            }
+        ));
+        jScrollPane3.setViewportView(user_ffoodtab);
+
+        jLabel9.setBackground(new java.awt.Color(204, 255, 204));
+        jLabel9.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel9.setForeground(new java.awt.Color(102, 0, 0));
+        jLabel9.setText("USERNAME");
+
+        user_name.setBackground(new java.awt.Color(204, 255, 204));
+        user_name.setFont(new java.awt.Font("Bahnschrift", 1, 18)); // NOI18N
+        user_name.setForeground(new java.awt.Color(0, 51, 51));
+        user_name.setText("jLabel8");
+
+        jLabel8.setBackground(new java.awt.Color(204, 255, 204));
+        jLabel8.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel8.setForeground(new java.awt.Color(102, 0, 0));
+        jLabel8.setText("RATING");
+
+        user_slider.setBackground(new java.awt.Color(204, 255, 204));
+        user_slider.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        user_slider.setForeground(new java.awt.Color(0, 51, 51));
+        user_slider.setMajorTickSpacing(1);
+        user_slider.setMaximum(10);
+        user_slider.setPaintLabels(true);
+        user_slider.setPaintTicks(true);
+        user_slider.setSnapToTicks(true);
+
+        user_rating.setBackground(new java.awt.Color(255, 255, 255));
+        user_rating.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        user_rating.setForeground(new java.awt.Color(0, 51, 51));
+
+        jLabel7.setBackground(new java.awt.Color(204, 255, 204));
+        jLabel7.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(102, 0, 0));
+        jLabel7.setText("FEEDBACK");
+
+        user_ffoodfeed.setBackground(new java.awt.Color(255, 255, 255));
+        user_ffoodfeed.setColumns(20);
+        user_ffoodfeed.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        user_ffoodfeed.setForeground(new java.awt.Color(0, 51, 51));
+        user_ffoodfeed.setRows(5);
+        jScrollPane4.setViewportView(user_ffoodfeed);
+
+        jButton2.setBackground(new java.awt.Color(102, 0, 0));
+        jButton2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jButton2.setForeground(new java.awt.Color(255, 255, 255));
+        jButton2.setText("Comment");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -164,19 +304,6 @@ public class User_fastfood extends javax.swing.JFrame {
                 .addGap(20, 20, 20)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel3))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabel4)
-                                .addGap(0, 0, Short.MAX_VALUE))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(jLabel2)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(user_fastfood, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -184,52 +311,95 @@ public class User_fastfood extends javax.swing.JFrame {
                         .addComponent(jLabel5)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(user_ctime, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(491, 491, 491))
+                        .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel3))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel4)
+                                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addComponent(jButton1)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGap(136, 136, 136)
-                                .addComponent(jLabel6)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabel1)
-                        .addGap(401, 401, 401)
-                        .addComponent(home_login)
-                        .addGap(21, 21, 21))))
+                                .addComponent(user_ffoodimg)))
+                        .addGap(37, 37, 37)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
+                                .addGap(0, 0, Short.MAX_VALUE)
+                                .addComponent(jButton2)
+                                .addGap(98, 98, 98))
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                        .addComponent(jLabel7)
+                                        .addComponent(jLabel9)
+                                        .addComponent(jScrollPane4)
+                                        .addComponent(user_name)
+                                        .addComponent(user_slider, javax.swing.GroupLayout.PREFERRED_SIZE, 294, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(jLabel8, javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(user_rating, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(0, 0, Short.MAX_VALUE)))
+                        .addGap(40, 40, 40)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(home_login, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jScrollPane3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 400, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(26, 26, 26))))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addContainerGap()
-                                .addComponent(jLabel1))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(25, 25, 25)
-                                .addComponent(home_login)))
-                        .addGap(44, 44, 44))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(41, 41, 41)
                         .addComponent(jButton1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabel6)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)))
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(user_fastfood, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel5)
-                    .addComponent(user_ctime, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(33, 33, 33)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel3)
-                    .addComponent(jLabel4))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 390, Short.MAX_VALUE)
-                    .addComponent(jScrollPane1))
-                .addContainerGap(37, Short.MAX_VALUE))
+                        .addGap(21, 21, 21)
+                        .addComponent(user_ffoodimg))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(20, 20, 20)
+                        .addComponent(home_login))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabel1)))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 70, Short.MAX_VALUE)
+                        .addComponent(jLabel9)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(user_name)
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabel8)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(user_slider, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(user_rating, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabel7)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jButton2))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(12, 12, 12)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel2)
+                            .addComponent(user_fastfood, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel5)
+                            .addComponent(user_ctime, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(21, 21, 21)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel3)
+                            .addComponent(jLabel4))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jScrollPane2)
+                            .addComponent(jScrollPane1)
+                            .addComponent(jScrollPane3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 390, Short.MAX_VALUE))))
+                .addContainerGap(44, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -289,6 +459,40 @@ public class User_fastfood extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+        String name = user_name.getText();
+        String ffoodimg = user_ffoodimg.getText();
+        String feed = user_ffoodfeed.getText();
+        String rtype = user_fastfood.getSelectedItem().toString();
+        int val = Integer.parseInt(user_rating.getText());
+        user_slider.setValue(val);
+        try
+        {
+            pst = conn.prepareStatement("insert into desicomments (NAME,RECIEPETYPE,RECIEPENAME,FEEDBACK,RATING) values (?,?,?,?,?) ");
+            pst.setString(1, name);
+            pst.setString(2, ffoodimg);
+            pst.setString(3, rtype);
+            pst.setString(4, feed);
+            pst.setInt(5, val);
+
+            pst.executeUpdate();
+
+            JOptionPane.showMessageDialog(this, "THANKYOU FOR FEEDBACK");
+            user_ffoodfeed.setText("");
+            user_fastfood.setSelectedIndex(-1);
+            user_ctime.setText("");
+            user_items.setText("");
+            user_method.setText("");
+            user_rating.setText("");
+            feedbacktable();
+
+        }catch(Exception ex)
+        {
+            Logger.getLogger(User_fastfood.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_jButton2ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -327,18 +531,29 @@ public class User_fastfood extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton home_login;
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JTextField user_ctime;
     private javax.swing.JComboBox<String> user_fastfood;
+    private javax.swing.JTextArea user_ffoodfeed;
+    private javax.swing.JLabel user_ffoodimg;
+    private javax.swing.JTable user_ffoodtab;
     private javax.swing.JTextArea user_items;
     private javax.swing.JTextArea user_method;
+    private javax.swing.JLabel user_name;
+    private javax.swing.JTextField user_rating;
+    private javax.swing.JSlider user_slider;
     // End of variables declaration//GEN-END:variables
 }

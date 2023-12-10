@@ -52,7 +52,7 @@ public class User_login extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jPanel4.setBackground(new java.awt.Color(204, 255, 204));
+        jPanel4.setBackground(new java.awt.Color(255, 255, 255));
         jPanel4.setForeground(new java.awt.Color(0, 0, 0));
 
         jPanel1.setBackground(new java.awt.Color(102, 0, 0));
@@ -60,11 +60,11 @@ public class User_login extends javax.swing.JFrame {
         jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\IT Garage\\Downloads\\icons8-chef-100.png")); // NOI18N
 
         jLabel2.setFont(new java.awt.Font("Algerian", 0, 24)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(204, 255, 204));
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("HOME CHEF");
 
-        jLabel3.setFont(new java.awt.Font("Bahnschrift", 1, 14)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(204, 255, 204));
+        jLabel3.setFont(new java.awt.Font("Bahnschrift", 1, 16)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("At Your Service");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -106,7 +106,7 @@ public class User_login extends javax.swing.JFrame {
         jLabel5.setForeground(new java.awt.Color(102, 0, 0));
         jLabel5.setText("Username");
 
-        uname_login.setBackground(new java.awt.Color(204, 255, 204));
+        uname_login.setBackground(new java.awt.Color(255, 255, 255));
         uname_login.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         uname_login.setForeground(new java.awt.Color(102, 0, 0));
         uname_login.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(102, 0, 0)));
@@ -115,14 +115,14 @@ public class User_login extends javax.swing.JFrame {
         jLabel6.setForeground(new java.awt.Color(102, 0, 0));
         jLabel6.setText("Password");
 
-        upass_login.setBackground(new java.awt.Color(204, 255, 204));
+        upass_login.setBackground(new java.awt.Color(255, 255, 255));
         upass_login.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         upass_login.setForeground(new java.awt.Color(102, 0, 0));
         upass_login.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(102, 0, 0)));
 
         u_login.setBackground(new java.awt.Color(102, 0, 0));
         u_login.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        u_login.setForeground(new java.awt.Color(204, 255, 204));
+        u_login.setForeground(new java.awt.Color(255, 255, 255));
         u_login.setText("Login");
         u_login.setBorder(null);
         u_login.addActionListener(new java.awt.event.ActionListener() {
@@ -137,7 +137,7 @@ public class User_login extends javax.swing.JFrame {
 
         u_signup.setBackground(new java.awt.Color(102, 0, 0));
         u_signup.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        u_signup.setForeground(new java.awt.Color(204, 255, 204));
+        u_signup.setForeground(new java.awt.Color(255, 255, 255));
         u_signup.setText("Signup");
         u_signup.setBorder(null);
         u_signup.addActionListener(new java.awt.event.ActionListener() {
@@ -146,7 +146,7 @@ public class User_login extends javax.swing.JFrame {
             }
         });
 
-        jButton1.setBackground(new java.awt.Color(204, 255, 204));
+        jButton1.setBackground(new java.awt.Color(255, 255, 255));
         jButton1.setIcon(new javax.swing.ImageIcon("C:\\Users\\IT Garage\\Downloads\\icons8-home-38.png")); // NOI18N
         jButton1.setBorder(null);
         jButton1.addActionListener(new java.awt.event.ActionListener() {

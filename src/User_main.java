@@ -60,12 +60,12 @@ public class User_main extends javax.swing.JFrame {
         jPanel1.add(home_login, new org.netbeans.lib.awtextra.AbsoluteConstraints(960, 20, -1, -1));
 
         jLabel7.setBackground(new java.awt.Color(102, 0, 0));
-        jLabel7.setFont(new java.awt.Font("Segoe UI Light", 1, 20)); // NOI18N
+        jLabel7.setFont(new java.awt.Font("Bahnschrift", 1, 20)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(255, 255, 255));
         jLabel7.setText("\"Indulging In Flavors That Make Life Delicious\"");
         jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 140, -1, -1));
 
-        jPanel2.setBackground(new java.awt.Color(204, 255, 204));
+        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jButton2.setBackground(new java.awt.Color(102, 0, 0));

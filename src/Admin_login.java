@@ -50,20 +50,22 @@ public class Admin_login extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jPanel4.setBackground(new java.awt.Color(204, 255, 204));
+        jPanel4.setBackground(new java.awt.Color(255, 255, 255));
         jPanel4.setForeground(new java.awt.Color(0, 0, 0));
 
         jPanel1.setBackground(new java.awt.Color(102, 0, 0));
 
         jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\IT Garage\\Downloads\\icons8-chef-100.png")); // NOI18N
 
+        jLabel2.setBackground(new java.awt.Color(102, 0, 0));
         jLabel2.setFont(new java.awt.Font("Algerian", 0, 24)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(204, 255, 204));
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("HOME CHEF");
 
-        jLabel3.setFont(new java.awt.Font("Bahnschrift", 1, 14)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(204, 255, 204));
-        jLabel3.setText("At Your Service");
+        jLabel3.setBackground(new java.awt.Color(102, 0, 0));
+        jLabel3.setFont(new java.awt.Font("Bahnschrift", 1, 16)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel3.setText("  At Your Service");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -76,11 +78,9 @@ public class Admin_login extends javax.swing.JFrame {
                         .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(90, 90, 90)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(6, 6, 6)
-                                .addComponent(jLabel3))
-                            .addComponent(jLabel2))))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addContainerGap(103, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -104,7 +104,7 @@ public class Admin_login extends javax.swing.JFrame {
         jLabel5.setForeground(new java.awt.Color(102, 0, 0));
         jLabel5.setText("Username");
 
-        aname_login.setBackground(new java.awt.Color(204, 255, 204));
+        aname_login.setBackground(new java.awt.Color(255, 255, 255));
         aname_login.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         aname_login.setForeground(new java.awt.Color(102, 0, 0));
         aname_login.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(102, 0, 0)));
@@ -113,14 +113,14 @@ public class Admin_login extends javax.swing.JFrame {
         jLabel6.setForeground(new java.awt.Color(102, 0, 0));
         jLabel6.setText("Password");
 
-        apass_login.setBackground(new java.awt.Color(204, 255, 204));
+        apass_login.setBackground(new java.awt.Color(255, 255, 255));
         apass_login.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         apass_login.setForeground(new java.awt.Color(102, 0, 0));
         apass_login.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(102, 0, 0)));
 
         a_login.setBackground(new java.awt.Color(102, 0, 0));
         a_login.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        a_login.setForeground(new java.awt.Color(204, 255, 204));
+        a_login.setForeground(new java.awt.Color(255, 255, 255));
         a_login.setText("Login");
         a_login.setBorder(null);
         a_login.addActionListener(new java.awt.event.ActionListener() {
@@ -131,7 +131,7 @@ public class Admin_login extends javax.swing.JFrame {
 
         a_exit.setBackground(new java.awt.Color(102, 0, 0));
         a_exit.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        a_exit.setForeground(new java.awt.Color(204, 255, 204));
+        a_exit.setForeground(new java.awt.Color(255, 255, 255));
         a_exit.setText("Cancel");
         a_exit.setBorder(null);
         a_exit.addActionListener(new java.awt.event.ActionListener() {
@@ -140,7 +140,8 @@ public class Admin_login extends javax.swing.JFrame {
             }
         });
 
-        home_login.setBackground(new java.awt.Color(204, 255, 204));
+        home_login.setBackground(new java.awt.Color(255, 255, 255));
+        home_login.setForeground(new java.awt.Color(255, 255, 255));
         home_login.setIcon(new javax.swing.ImageIcon("C:\\Users\\IT Garage\\Downloads\\icons8-home-38.png")); // NOI18N
         home_login.setBorder(null);
         home_login.addActionListener(new java.awt.event.ActionListener() {
@@ -185,25 +186,22 @@ public class Admin_login extends javax.swing.JFrame {
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
             .addGroup(jPanel4Layout.createSequentialGroup()
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(home_login)
-                        .addGap(10, 10, 10)
-                        .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(62, 62, 62)
-                        .addComponent(jLabel5)
-                        .addGap(10, 10, 10)
-                        .addComponent(aname_login, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jLabel6)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(apass_login, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(33, 33, 33)
-                        .addComponent(a_login, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addGap(307, 307, 307)
-                        .addComponent(a_exit, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap()
+                .addComponent(home_login)
+                .addGap(10, 10, 10)
+                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(62, 62, 62)
+                .addComponent(jLabel5)
+                .addGap(10, 10, 10)
+                .addComponent(aname_login, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel6)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(apass_login, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(33, 33, 33)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(a_login, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(a_exit, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -277,7 +275,7 @@ public class Admin_login extends javax.swing.JFrame {
      * @param args the command line arguments
      */
     public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
+        
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
          * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 

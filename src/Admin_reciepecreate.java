@@ -1,4 +1,6 @@
 
+import java.awt.Color;
+import java.awt.Font;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -10,6 +12,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.JTableHeader;
 
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
@@ -60,6 +63,13 @@ public class Admin_reciepecreate extends javax.swing.JFrame {
     public void reciepetable()
     {
         try {
+             JTableHeader head = rtable_admin.getTableHeader();
+             Font font = new Font("Arial",Font.BOLD,20);
+             head.setFont(font);
+             rtable_admin.setBackground(Color.WHITE);
+             rtable_admin.setFont(new Font("Tahoma",Font.BOLD,15));
+             rtable_admin.setForeground(Color.RED);            
+            
              pst = conn.prepareStatement("select * from reciepes");
              rs = pst.executeQuery();
              ResultSetMetaData rsmd = rs.getMetaData();
@@ -121,7 +131,7 @@ public class Admin_reciepecreate extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jPanel1.setBackground(new java.awt.Color(204, 255, 204));
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setForeground(new java.awt.Color(0, 51, 51));
 
         jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\IT Garage\\Downloads\\icons8-chef-100.png")); // NOI18N
@@ -131,7 +141,7 @@ public class Admin_reciepecreate extends javax.swing.JFrame {
         jLabel2.setForeground(new java.awt.Color(0, 51, 51));
         jLabel2.setText("Reciepe Name");
 
-        rname_admin.setBackground(new java.awt.Color(204, 255, 204));
+        rname_admin.setBackground(new java.awt.Color(255, 255, 255));
         rname_admin.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         rname_admin.setForeground(new java.awt.Color(102, 0, 0));
         rname_admin.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(102, 0, 0)));
@@ -141,7 +151,7 @@ public class Admin_reciepecreate extends javax.swing.JFrame {
         jLabel3.setForeground(new java.awt.Color(0, 51, 51));
         jLabel3.setText("Reciepe Type");
 
-        rtype_admin.setBackground(new java.awt.Color(204, 255, 204));
+        rtype_admin.setBackground(new java.awt.Color(255, 255, 255));
         rtype_admin.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         rtype_admin.setForeground(new java.awt.Color(102, 0, 0));
         rtype_admin.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Desi", "Fast Food", "BBQ", "Drinks", "Desserts" }));
@@ -152,13 +162,13 @@ public class Admin_reciepecreate extends javax.swing.JFrame {
         jLabel4.setForeground(new java.awt.Color(0, 51, 51));
         jLabel4.setText("Cooking Time");
 
-        ctime_admin.setBackground(new java.awt.Color(204, 255, 204));
+        ctime_admin.setBackground(new java.awt.Color(255, 255, 255));
         ctime_admin.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         ctime_admin.setForeground(new java.awt.Color(102, 0, 0));
         ctime_admin.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "15-30 Mins", "30-60 Mins", "01-02 Hrs", "02-03 Hrs", " " }));
         ctime_admin.setBorder(null);
 
-        add_reciepe.setBackground(new java.awt.Color(204, 255, 204));
+        add_reciepe.setBackground(new java.awt.Color(255, 255, 255));
         add_reciepe.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         add_reciepe.setForeground(new java.awt.Color(102, 0, 0));
         add_reciepe.setText("ADD");
@@ -168,7 +178,7 @@ public class Admin_reciepecreate extends javax.swing.JFrame {
             }
         });
 
-        update_reciepe.setBackground(new java.awt.Color(204, 255, 204));
+        update_reciepe.setBackground(new java.awt.Color(255, 255, 255));
         update_reciepe.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         update_reciepe.setForeground(new java.awt.Color(102, 0, 0));
         update_reciepe.setText("UPDATE");
@@ -178,7 +188,7 @@ public class Admin_reciepecreate extends javax.swing.JFrame {
             }
         });
 
-        delete_reciepe.setBackground(new java.awt.Color(204, 255, 204));
+        delete_reciepe.setBackground(new java.awt.Color(255, 255, 255));
         delete_reciepe.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         delete_reciepe.setForeground(new java.awt.Color(102, 0, 0));
         delete_reciepe.setText("DELETE");
@@ -232,7 +242,7 @@ public class Admin_reciepecreate extends javax.swing.JFrame {
         });
         jScrollPane3.setViewportView(rtable_admin);
 
-        home_login.setBackground(new java.awt.Color(204, 255, 204));
+        home_login.setBackground(new java.awt.Color(255, 255, 255));
         home_login.setIcon(new javax.swing.ImageIcon("C:\\Users\\IT Garage\\Downloads\\icons8-home-38.png")); // NOI18N
         home_login.setBorder(null);
         home_login.addActionListener(new java.awt.event.ActionListener() {
@@ -302,9 +312,11 @@ public class Admin_reciepecreate extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 783, Short.MAX_VALUE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(109, 109, 109)
                         .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(568, 568, 568)
-                        .addComponent(home_login)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(home_login)
+                        .addGap(9, 9, 9)))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(

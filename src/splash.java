@@ -36,7 +36,7 @@ public class splash extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jPanel1.setBackground(new java.awt.Color(204, 255, 204));
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
         jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\IT Garage\\Downloads\\icons8-chef-100.png")); // NOI18N
         jLabel1.setText(".");
@@ -54,6 +54,7 @@ public class splash extends javax.swing.JFrame {
         jLabel4.setForeground(new java.awt.Color(102, 0, 0));
         jLabel4.setText("- - - - - - - - - -");
 
+        prog_bar.setBackground(new java.awt.Color(255, 255, 255));
         prog_bar.setForeground(new java.awt.Color(102, 0, 0));
         prog_bar.setBorderPainted(false);
 

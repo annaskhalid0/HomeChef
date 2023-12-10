@@ -38,7 +38,7 @@ public class Admin_main extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jPanel4.setBackground(new java.awt.Color(204, 255, 204));
+        jPanel4.setBackground(new java.awt.Color(255, 255, 255));
         jPanel4.setForeground(new java.awt.Color(0, 0, 0));
 
         jPanel1.setBackground(new java.awt.Color(102, 0, 0));
@@ -46,11 +46,11 @@ public class Admin_main extends javax.swing.JFrame {
         jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\IT Garage\\Downloads\\icons8-chef-100.png")); // NOI18N
 
         jLabel2.setFont(new java.awt.Font("Algerian", 0, 24)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(204, 255, 204));
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("HOME CHEF");
 
-        jLabel3.setFont(new java.awt.Font("Bahnschrift", 1, 14)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(204, 255, 204));
+        jLabel3.setFont(new java.awt.Font("Bahnschrift", 1, 16)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("At Your Service");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -93,9 +93,9 @@ public class Admin_main extends javax.swing.JFrame {
         jLabel5.setForeground(new java.awt.Color(102, 0, 0));
         jLabel5.setText("Chef Reciepe Creation");
 
-        jButton1.setBackground(new java.awt.Color(168, 88, 88));
+        jButton1.setBackground(new java.awt.Color(102, 0, 0));
         jButton1.setFont(new java.awt.Font("Bahnschrift", 1, 24)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(204, 255, 204));
+        jButton1.setForeground(new java.awt.Color(255, 255, 255));
         jButton1.setText("RECIEPE");
         jButton1.setBorder(null);
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -104,9 +104,9 @@ public class Admin_main extends javax.swing.JFrame {
             }
         });
 
-        jButton2.setBackground(new java.awt.Color(168, 88, 88));
+        jButton2.setBackground(new java.awt.Color(102, 0, 0));
         jButton2.setFont(new java.awt.Font("Bahnschrift", 1, 24)); // NOI18N
-        jButton2.setForeground(new java.awt.Color(204, 255, 204));
+        jButton2.setForeground(new java.awt.Color(255, 255, 255));
         jButton2.setText("FEEDBACKS");
         jButton2.setBorder(null);
         jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -115,7 +115,8 @@ public class Admin_main extends javax.swing.JFrame {
             }
         });
 
-        jButton3.setBackground(new java.awt.Color(204, 255, 204));
+        jButton3.setBackground(new java.awt.Color(255, 255, 255));
+        jButton3.setForeground(new java.awt.Color(255, 255, 255));
         jButton3.setIcon(new javax.swing.ImageIcon("C:\\Users\\IT Garage\\Downloads\\icons8-home-38.png")); // NOI18N
         jButton3.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.LOWERED));
         jButton3.addActionListener(new java.awt.event.ActionListener() {
