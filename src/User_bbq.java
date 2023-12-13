@@ -61,7 +61,7 @@ public class User_bbq extends javax.swing.JFrame {
              Font font = new Font("Arial",Font.BOLD,20);
              head.setFont(font);
              user_bbqtab.setBackground(Color.WHITE);
-             user_bbqtab.setFont(new Font("Tahoma",Font.BOLD,15));
+             user_bbqtab.setFont(new Font("Consolas",Font.BOLD,15));
              user_bbqtab.setForeground(Color.RED);
             
              pst = conn.prepareStatement("select * from desicomments where RECIEPETYPE='BBQ'");
@@ -102,6 +102,8 @@ public class User_bbq extends javax.swing.JFrame {
     public void rimg()
     {
         user_bbqimg.setText("BBQ");
+        user_bbqimg.setFont(new Font("Consolas",Font.BOLD,15));
+        user_bbqimg.setForeground(Color.RED);
     }
     
     
@@ -213,6 +215,7 @@ public class User_bbq extends javax.swing.JFrame {
         user_ctime.setBackground(new java.awt.Color(255, 255, 255));
         user_ctime.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         user_ctime.setForeground(new java.awt.Color(0, 51, 51));
+        user_ctime.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.LOWERED));
 
         jButton1.setBackground(new java.awt.Color(255, 255, 255));
         jButton1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
@@ -238,6 +241,7 @@ public class User_bbq extends javax.swing.JFrame {
         user_name.setFont(new java.awt.Font("Bahnschrift", 1, 18)); // NOI18N
         user_name.setForeground(new java.awt.Color(0, 51, 51));
         user_name.setText("jLabel8");
+        user_name.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.LOWERED));
 
         jLabel8.setBackground(new java.awt.Color(204, 255, 204));
         jLabel8.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -252,10 +256,12 @@ public class User_bbq extends javax.swing.JFrame {
         user_slider.setPaintLabels(true);
         user_slider.setPaintTicks(true);
         user_slider.setSnapToTicks(true);
+        user_slider.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.LOWERED));
 
         user_rating.setBackground(new java.awt.Color(255, 255, 255));
         user_rating.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         user_rating.setForeground(new java.awt.Color(0, 51, 51));
+        user_rating.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.LOWERED));
 
         jLabel7.setBackground(new java.awt.Color(204, 255, 204));
         jLabel7.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -267,6 +273,7 @@ public class User_bbq extends javax.swing.JFrame {
         user_bbqfeed.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         user_bbqfeed.setForeground(new java.awt.Color(0, 51, 51));
         user_bbqfeed.setRows(5);
+        user_bbqfeed.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.LOWERED));
         jScrollPane4.setViewportView(user_bbqfeed);
 
         jButton2.setBackground(new java.awt.Color(102, 0, 0));
@@ -324,19 +331,18 @@ public class User_bbq extends javax.swing.JFrame {
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
                                 .addGap(0, 0, Short.MAX_VALUE)
                                 .addComponent(jButton2)
-                                .addGap(98, 98, 98))
+                                .addGap(138, 138, 138))
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                         .addComponent(jLabel7)
                                         .addComponent(jLabel9)
                                         .addComponent(jScrollPane4)
-                                        .addComponent(user_name)
-                                        .addComponent(user_slider, javax.swing.GroupLayout.PREFERRED_SIZE, 294, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addComponent(user_slider, javax.swing.GroupLayout.PREFERRED_SIZE, 294, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(user_name, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addComponent(jLabel8, javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(user_rating, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(0, 0, Short.MAX_VALUE)))
-                        .addGap(40, 40, 40)
+                                .addGap(0, 40, Short.MAX_VALUE)))
                         .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 400, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(43, 43, 43))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
@@ -452,6 +458,9 @@ public class User_bbq extends javax.swing.JFrame {
                 user_ctime.setText(COOKTIME);
             }
 
+            user_bbqfeed.setText("");
+            user_rating.setText("");
+            
         } catch (SQLException ex) {
             Logger.getLogger(User_bbq.class.getName()).log(Level.SEVERE, null, ex);
         }

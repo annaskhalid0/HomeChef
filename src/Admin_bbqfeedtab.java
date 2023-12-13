@@ -39,7 +39,7 @@ public class Admin_bbqfeedtab extends javax.swing.JFrame {
              Font font = new Font("Arial",Font.BOLD,20);
              head.setFont(font);
              Admin_bbqfeedback.setBackground(Color.WHITE);
-             Admin_bbqfeedback.setFont(new Font("Tahoma",Font.BOLD,15));
+             Admin_bbqfeedback.setFont(new Font("Consolas",Font.BOLD,15));
              Admin_bbqfeedback.setForeground(Color.RED);
             
              pst = conn.prepareStatement("select * from desicomments where RECIEPETYPE='BBQ'");

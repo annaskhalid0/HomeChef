@@ -134,6 +134,8 @@ public class Admin_reciepecreate extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setForeground(new java.awt.Color(0, 51, 51));
 
+        jLabel1.setBackground(new java.awt.Color(102, 0, 0));
+        jLabel1.setForeground(new java.awt.Color(102, 0, 0));
         jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\IT Garage\\Downloads\\icons8-chef-100.png")); // NOI18N
 
         jLabel2.setBackground(new java.awt.Color(204, 255, 204));
@@ -204,6 +206,7 @@ public class Admin_reciepecreate extends javax.swing.JFrame {
         method_admin.setForeground(new java.awt.Color(0, 51, 51));
         method_admin.setRows(5);
         method_admin.setText("\n");
+        method_admin.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.LOWERED));
         jScrollPane2.setViewportView(method_admin);
 
         jLabel5.setBackground(new java.awt.Color(204, 255, 204));
@@ -256,6 +259,7 @@ public class Admin_reciepecreate extends javax.swing.JFrame {
         items_admin.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         items_admin.setForeground(new java.awt.Color(0, 51, 51));
         items_admin.setRows(5);
+        items_admin.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.LOWERED));
         jScrollPane4.setViewportView(items_admin);
 
         jLabel7.setBackground(new java.awt.Color(204, 255, 204));
@@ -267,6 +271,7 @@ public class Admin_reciepecreate extends javax.swing.JFrame {
         rid_admin.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         rid_admin.setForeground(new java.awt.Color(102, 0, 0));
         rid_admin.setText("jLabel8");
+        rid_admin.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.LOWERED));
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -310,7 +315,7 @@ public class Admin_reciepecreate extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 783, Short.MAX_VALUE))
+                        .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 795, Short.MAX_VALUE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(109, 109, 109)
                         .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)

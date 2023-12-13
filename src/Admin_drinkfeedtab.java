@@ -39,7 +39,7 @@ public class Admin_drinkfeedtab extends javax.swing.JFrame {
              Font font = new Font("Arial",Font.BOLD,20);
              head.setFont(font);
              Admin_drinkfeedback.setBackground(Color.WHITE);
-             Admin_drinkfeedback.setFont(new Font("Tahoma",Font.BOLD,15));
+             Admin_drinkfeedback.setFont(new Font("Consolas",Font.BOLD,15));
              Admin_drinkfeedback.setForeground(Color.RED);
             
              pst = conn.prepareStatement("select * from desicomments where RECIEPETYPE='Drinks'");

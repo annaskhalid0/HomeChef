@@ -39,7 +39,7 @@ public class Admin_ffoodfeedtab extends javax.swing.JFrame {
              Font font = new Font("Arial",Font.BOLD,20);
              head.setFont(font);
              Admin_ffoodfeedback.setBackground(Color.WHITE);
-             Admin_ffoodfeedback.setFont(new Font("Tahoma",Font.BOLD,15));
+             Admin_ffoodfeedback.setFont(new Font("Consolas",Font.BOLD,15));
              Admin_ffoodfeedback.setForeground(Color.RED);
             
              pst = conn.prepareStatement("select * from desicomments where RECIEPETYPE='FastFood'");

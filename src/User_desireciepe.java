@@ -57,7 +57,7 @@ public class User_desireciepe extends javax.swing.JFrame {
              Font font = new Font("Arial",Font.BOLD,20);
              head.setFont(font);
              user_desitab.setBackground(Color.WHITE);
-             user_desitab.setFont(new Font("Tahoma",Font.BOLD,15));
+             user_desitab.setFont(new Font("Consolas",Font.BOLD,15));
              user_desitab.setForeground(Color.RED);  
              
              pst = conn.prepareStatement("select * from desicomments where RECIEPETYPE='Desi'");
@@ -97,6 +97,8 @@ public class User_desireciepe extends javax.swing.JFrame {
     public void rimg()
     {
         user_desiimg.setText("Desi");
+        user_desiimg.setFont(new Font("Consolas",Font.BOLD,15));
+        user_desiimg.setForeground(Color.RED);  
     }
     
     
@@ -208,6 +210,7 @@ public class User_desireciepe extends javax.swing.JFrame {
         user_ctime.setBackground(new java.awt.Color(255, 255, 255));
         user_ctime.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         user_ctime.setForeground(new java.awt.Color(0, 51, 51));
+        user_ctime.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.LOWERED));
 
         jButton1.setBackground(new java.awt.Color(255, 255, 255));
         jButton1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
@@ -245,6 +248,7 @@ public class User_desireciepe extends javax.swing.JFrame {
         user_desifeed.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         user_desifeed.setForeground(new java.awt.Color(0, 51, 51));
         user_desifeed.setRows(5);
+        user_desifeed.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.LOWERED));
         jScrollPane4.setViewportView(user_desifeed);
 
         jButton2.setBackground(new java.awt.Color(102, 0, 0));
@@ -266,6 +270,7 @@ public class User_desireciepe extends javax.swing.JFrame {
         user_name.setFont(new java.awt.Font("Bahnschrift", 1, 18)); // NOI18N
         user_name.setForeground(new java.awt.Color(0, 51, 51));
         user_name.setText("jLabel8");
+        user_name.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.LOWERED));
 
         jLabel9.setBackground(new java.awt.Color(204, 255, 204));
         jLabel9.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -280,6 +285,7 @@ public class User_desireciepe extends javax.swing.JFrame {
         user_slider.setPaintLabels(true);
         user_slider.setPaintTicks(true);
         user_slider.setSnapToTicks(true);
+        user_slider.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.LOWERED));
 
         jLabel8.setBackground(new java.awt.Color(204, 255, 204));
         jLabel8.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -289,6 +295,7 @@ public class User_desireciepe extends javax.swing.JFrame {
         user_rating.setBackground(new java.awt.Color(255, 255, 255));
         user_rating.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         user_rating.setForeground(new java.awt.Color(0, 51, 51));
+        user_rating.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.LOWERED));
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -336,8 +343,8 @@ public class User_desireciepe extends javax.swing.JFrame {
                                         .addComponent(jLabel7)
                                         .addComponent(jLabel9)
                                         .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 294, Short.MAX_VALUE)
-                                        .addComponent(user_name)
-                                        .addComponent(user_slider, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                        .addComponent(user_slider, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(user_name, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addComponent(jLabel8)
                                     .addComponent(user_rating, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 25, Short.MAX_VALUE)))
@@ -439,6 +446,9 @@ public class User_desireciepe extends javax.swing.JFrame {
                 user_method.setText(METHOD);
                 user_ctime.setText(COOKTIME);
             }
+            
+            user_desifeed.setText("");
+            user_rating.setText("");
             
         } catch (SQLException ex) {
             Logger.getLogger(User_desireciepe.class.getName()).log(Level.SEVERE, null, ex);

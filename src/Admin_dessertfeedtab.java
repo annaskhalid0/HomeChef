@@ -37,7 +37,7 @@ public class Admin_dessertfeedtab extends javax.swing.JFrame {
              Font font = new Font("Arial",Font.BOLD,20);
              head.setFont(font);
              Admin_dessertfeedback.setBackground(Color.WHITE);
-             Admin_dessertfeedback.setFont(new Font("Tahoma",Font.BOLD,15));
+             Admin_dessertfeedback.setFont(new Font("Consolas",Font.BOLD,15));
              Admin_dessertfeedback.setForeground(Color.RED);
             
              pst = conn.prepareStatement("select * from desicomments where RECIEPETYPE='Desserts'");

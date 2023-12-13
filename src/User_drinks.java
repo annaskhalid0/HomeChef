@@ -62,7 +62,7 @@ public class User_drinks extends javax.swing.JFrame {
              Font font = new Font("Arial",Font.BOLD,20);
              head.setFont(font);
              user_drinkstab.setBackground(Color.WHITE);
-             user_drinkstab.setFont(new Font("Tahoma",Font.BOLD,15));
+             user_drinkstab.setFont(new Font("Consolas",Font.BOLD,15));
              user_drinkstab.setForeground(Color.RED);
             
              pst = conn.prepareStatement("select * from desicomments where RECIEPETYPE='Drinks'");
@@ -103,6 +103,8 @@ public class User_drinks extends javax.swing.JFrame {
     public void rimg()
     {
         user_drinkimg.setText("Drinks");
+        user_drinkimg.setFont(new Font("Consolas",Font.BOLD,15));
+        user_drinkimg.setForeground(Color.RED);
     }
     
     
@@ -214,6 +216,7 @@ public class User_drinks extends javax.swing.JFrame {
         user_ctime.setBackground(new java.awt.Color(255, 255, 255));
         user_ctime.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         user_ctime.setForeground(new java.awt.Color(0, 51, 51));
+        user_ctime.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.LOWERED));
 
         jButton1.setBackground(new java.awt.Color(255, 255, 255));
         jButton1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
@@ -239,6 +242,7 @@ public class User_drinks extends javax.swing.JFrame {
         user_name.setFont(new java.awt.Font("Bahnschrift", 1, 18)); // NOI18N
         user_name.setForeground(new java.awt.Color(0, 51, 51));
         user_name.setText("jLabel8");
+        user_name.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.LOWERED));
 
         jLabel8.setBackground(new java.awt.Color(204, 255, 204));
         jLabel8.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -253,10 +257,12 @@ public class User_drinks extends javax.swing.JFrame {
         user_slider.setPaintLabels(true);
         user_slider.setPaintTicks(true);
         user_slider.setSnapToTicks(true);
+        user_slider.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.LOWERED));
 
         user_rating.setBackground(new java.awt.Color(255, 255, 255));
         user_rating.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         user_rating.setForeground(new java.awt.Color(0, 51, 51));
+        user_rating.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.LOWERED));
 
         jLabel7.setBackground(new java.awt.Color(204, 255, 204));
         jLabel7.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -268,6 +274,7 @@ public class User_drinks extends javax.swing.JFrame {
         user_drinksfeed.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         user_drinksfeed.setForeground(new java.awt.Color(0, 51, 51));
         user_drinksfeed.setRows(5);
+        user_drinksfeed.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.LOWERED));
         jScrollPane4.setViewportView(user_drinksfeed);
 
         jButton2.setBackground(new java.awt.Color(102, 0, 0));
@@ -345,8 +352,8 @@ public class User_drinks extends javax.swing.JFrame {
                                                 .addComponent(jLabel7)
                                                 .addComponent(jLabel9)
                                                 .addComponent(jScrollPane4)
-                                                .addComponent(user_name)
-                                                .addComponent(user_slider, javax.swing.GroupLayout.PREFERRED_SIZE, 294, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                .addComponent(user_slider, javax.swing.GroupLayout.PREFERRED_SIZE, 294, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addComponent(user_name, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
                                             .addComponent(jLabel8, javax.swing.GroupLayout.Alignment.LEADING)
                                             .addComponent(user_rating, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE))
                                         .addGap(0, 0, Short.MAX_VALUE)))
@@ -458,6 +465,9 @@ public class User_drinks extends javax.swing.JFrame {
                 user_ctime.setText(COOKTIME);
             }
 
+            user_drinksfeed.setText("");
+            user_rating.setText("");
+            
         } catch (SQLException ex) {
             Logger.getLogger(User_drinks.class.getName()).log(Level.SEVERE, null, ex);
         }

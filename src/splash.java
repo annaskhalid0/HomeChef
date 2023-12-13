@@ -36,22 +36,24 @@ public class splash extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel1.setBackground(new java.awt.Color(102, 0, 0));
 
         jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\IT Garage\\Downloads\\icons8-chef-100.png")); // NOI18N
         jLabel1.setText(".");
 
-        jLabel2.setBackground(new java.awt.Color(204, 255, 204));
+        jLabel2.setBackground(new java.awt.Color(102, 0, 0));
         jLabel2.setFont(new java.awt.Font("Algerian", 0, 24)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(102, 0, 0));
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("YOUR HOME CHEF");
 
+        jLabel3.setBackground(new java.awt.Color(102, 0, 0));
         jLabel3.setFont(new java.awt.Font("Algerian", 0, 20)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(102, 0, 0));
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("- - - - - - - - - -");
 
+        jLabel4.setBackground(new java.awt.Color(102, 0, 0));
         jLabel4.setFont(new java.awt.Font("Algerian", 0, 20)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(102, 0, 0));
+        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("- - - - - - - - - -");
 
         prog_bar.setBackground(new java.awt.Color(255, 255, 255));
