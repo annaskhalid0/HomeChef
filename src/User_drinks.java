@@ -254,6 +254,7 @@ public class User_drinks extends javax.swing.JFrame {
         user_slider.setForeground(new java.awt.Color(0, 51, 51));
         user_slider.setMajorTickSpacing(1);
         user_slider.setMaximum(10);
+        user_slider.setMinimum(1);
         user_slider.setPaintLabels(true);
         user_slider.setPaintTicks(true);
         user_slider.setSnapToTicks(true);
@@ -464,7 +465,10 @@ public class User_drinks extends javax.swing.JFrame {
                 user_method.setText(METHOD);
                 user_ctime.setText(COOKTIME);
             }
-
+            user_items.setCaretPosition(0);
+            user_method.setCaretPosition(0);
+            //user_items.setLineWrap(true);
+            //user_method.setLineWrap(true);
             user_drinksfeed.setText("");
             user_rating.setText("");
             
@@ -499,7 +503,7 @@ public class User_drinks extends javax.swing.JFrame {
 
             pst.executeUpdate();
 
-            JOptionPane.showMessageDialog(this, "THANKYOU FOR FEEDBACK");
+            JOptionPane.showMessageDialog(this, "THANKYOU FOR FEEDBACK", "COMMENTS", WIDTH);
             user_drinksfeed.setText("");
             user_drinks.setSelectedIndex(-1);
             user_ctime.setText("");

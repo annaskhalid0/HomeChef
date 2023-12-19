@@ -259,7 +259,7 @@ public class User_login extends javax.swing.JFrame {
             
             if(rs.next())
             {
-                JOptionPane.showMessageDialog(rootPane, "SUCCESSFULLY LOGED INN");
+                JOptionPane.showMessageDialog(rootPane, "SUCCESSFULLY LOGED INN", "WELCOME", WIDTH);
                 
                 User_main umain = new User_main();
                 umain.setVisible(true);
@@ -267,7 +267,7 @@ public class User_login extends javax.swing.JFrame {
             }
             else
             {
-                JOptionPane.showMessageDialog(this, "USERNAME OR PASSWORD DOESNOT MATCH!!!");
+                JOptionPane.showMessageDialog(rootPane, "USERNAME OR PASSWORD DOESNOT MATCH!!!", "ERROR", HEIGHT);
                 uname_login.setText("");
                 upass_login.setText("");
                 

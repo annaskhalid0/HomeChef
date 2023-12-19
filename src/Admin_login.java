@@ -238,14 +238,14 @@ public class Admin_login extends javax.swing.JFrame {
                 rs = pst.executeQuery();
                 
                 if(rs.next()){
-                    JOptionPane.showMessageDialog(rootPane, "SUCCESSFULLY LOGED INN");
+                    JOptionPane.showMessageDialog(rootPane, "SUCCESSFULLY LOGED INN" , "WELCOME" ,WIDTH);
                     
                     Admin_main amain = new Admin_main();
                     amain.setVisible(true);
                     this.dispose();
                 }
                 else{
-                    JOptionPane.showMessageDialog(this, "USERNAME OR PASSWORD DOESNOT MATCH!!!");
+                    JOptionPane.showMessageDialog(rootPane, "USERNAME OR PASSWORD DOESNOT MATCH!!!", "ERROR", HEIGHT);
                     
                     aname_login.setText("");
                     apass_login.setText("");
