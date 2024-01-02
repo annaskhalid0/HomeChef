@@ -36,7 +36,7 @@ public class Admin_ffoodfeedtab extends javax.swing.JFrame {
     {
         try {
              JTableHeader head = Admin_ffoodfeedback.getTableHeader();
-             Font font = new Font("Arial",Font.BOLD,20);
+             Font font = new Font("Arial",Font.BOLD,15);
              head.setFont(font);
              Admin_ffoodfeedback.setBackground(Color.WHITE);
              Admin_ffoodfeedback.setFont(new Font("Consolas",Font.BOLD,15));

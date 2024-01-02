@@ -58,10 +58,10 @@ public class User_bbq extends javax.swing.JFrame {
     {
         try {
              JTableHeader head = user_bbqtab.getTableHeader();
-             Font font = new Font("Arial",Font.BOLD,20);
+             Font font = new Font("Arial",Font.BOLD,15);
              head.setFont(font);
              user_bbqtab.setBackground(Color.WHITE);
-             user_bbqtab.setFont(new Font("Consolas",Font.BOLD,15));
+             user_bbqtab.setFont(new Font("Consolas",Font.BOLD,12));
              user_bbqtab.setForeground(Color.RED);
             
              pst = conn.prepareStatement("select * from desicomments where RECIEPETYPE='BBQ'");

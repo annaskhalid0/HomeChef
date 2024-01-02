@@ -54,10 +54,10 @@ public class User_desireciepe extends javax.swing.JFrame {
     {
         try {
              JTableHeader head = user_desitab.getTableHeader();
-             Font font = new Font("Arial",Font.BOLD,20);
+             Font font = new Font("Arial",Font.BOLD,15);
              head.setFont(font);
              user_desitab.setBackground(Color.WHITE);
-             user_desitab.setFont(new Font("Consolas",Font.BOLD,15));
+             user_desitab.setFont(new Font("Consolas",Font.BOLD,12));
              user_desitab.setForeground(Color.RED);  
              
              pst = conn.prepareStatement("select * from desicomments where RECIEPETYPE='Desi'");

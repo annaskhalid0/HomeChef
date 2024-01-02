@@ -59,10 +59,10 @@ public class User_fastfood extends javax.swing.JFrame {
     {
         try {
              JTableHeader head = user_ffoodtab.getTableHeader();
-             Font font = new Font("Arial",Font.BOLD,20);
+             Font font = new Font("Arial",Font.BOLD,15);
              head.setFont(font);
              user_ffoodtab.setBackground(Color.WHITE);
-             user_ffoodtab.setFont(new Font("Consolas",Font.BOLD,15));
+             user_ffoodtab.setFont(new Font("Consolas",Font.BOLD,12));
              user_ffoodtab.setForeground(Color.RED);
             
              pst = conn.prepareStatement("select * from desicomments where RECIEPETYPE='FastFood'");

@@ -59,10 +59,10 @@ public class User_drinks extends javax.swing.JFrame {
     {
         try {
              JTableHeader head = user_drinkstab.getTableHeader();
-             Font font = new Font("Arial",Font.BOLD,20);
+             Font font = new Font("Arial",Font.BOLD,15);
              head.setFont(font);
              user_drinkstab.setBackground(Color.WHITE);
-             user_drinkstab.setFont(new Font("Consolas",Font.BOLD,15));
+             user_drinkstab.setFont(new Font("Consolas",Font.BOLD,12));
              user_drinkstab.setForeground(Color.RED);
             
              pst = conn.prepareStatement("select * from desicomments where RECIEPETYPE='Drinks'");

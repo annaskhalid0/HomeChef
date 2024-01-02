@@ -37,7 +37,7 @@ public class Admin_desifeedtab extends javax.swing.JFrame {
     {
         try {
             JTableHeader head = Admin_desifeedback.getTableHeader();
-            Font font = new Font("Arial",Font.BOLD,20);
+            Font font = new Font("Arial",Font.BOLD,15);
             head.setFont(font);
              Admin_desifeedback.setBackground(Color.WHITE);
              Admin_desifeedback.setFont(new Font("Consolas",Font.BOLD,15));

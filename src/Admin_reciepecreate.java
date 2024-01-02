@@ -64,10 +64,10 @@ public class Admin_reciepecreate extends javax.swing.JFrame {
     {
         try {
              JTableHeader head = rtable_admin.getTableHeader();
-             Font font = new Font("Arial",Font.BOLD,20);
+             Font font = new Font("Arial",Font.BOLD,15);
              head.setFont(font);
              rtable_admin.setBackground(Color.WHITE);
-             rtable_admin.setFont(new Font("Tahoma",Font.BOLD,15));
+             rtable_admin.setFont(new Font("Tahoma",Font.BOLD,12));
              rtable_admin.setForeground(Color.RED);            
             
              pst = conn.prepareStatement("select * from reciepes");

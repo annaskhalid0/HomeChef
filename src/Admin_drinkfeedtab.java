@@ -36,7 +36,7 @@ public class Admin_drinkfeedtab extends javax.swing.JFrame {
     {
         try {
              JTableHeader head = Admin_drinkfeedback.getTableHeader();
-             Font font = new Font("Arial",Font.BOLD,20);
+             Font font = new Font("Arial",Font.BOLD,15);
              head.setFont(font);
              Admin_drinkfeedback.setBackground(Color.WHITE);
              Admin_drinkfeedback.setFont(new Font("Consolas",Font.BOLD,15));

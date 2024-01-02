@@ -36,7 +36,7 @@ public class Admin_bbqfeedtab extends javax.swing.JFrame {
     {
         try {
              JTableHeader head = Admin_bbqfeedback.getTableHeader();
-             Font font = new Font("Arial",Font.BOLD,20);
+             Font font = new Font("Arial",Font.BOLD,15);
              head.setFont(font);
              Admin_bbqfeedback.setBackground(Color.WHITE);
              Admin_bbqfeedback.setFont(new Font("Consolas",Font.BOLD,15));
