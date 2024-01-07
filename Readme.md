@@ -53,3 +53,5 @@ Users can comment on recipes, fostering a sense of community and interaction.
 ### Performance
 
 The platform should load recipes and comments efficiently and support a reasonable number of concurrent users.
+
+[![Recipe Sharing Management](https://img.youtube.com/vi/q4POdAYCLFk)](https://www.youtube.com/watch?v=q4POdAYCLFk)
